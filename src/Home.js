@@ -17,11 +17,6 @@ export default function Home() {
             <div className="link-element">Update</div>
           </Link>
         </li>
-        <li>
-          <Link to="/home/delete" className="link-tag">
-            <div className="link-element">Delete</div>
-          </Link>
-        </li>
       </ul>
       <Outlet />
     </>

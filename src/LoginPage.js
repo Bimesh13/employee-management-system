@@ -4,25 +4,20 @@ import { useNavigate } from "react-router-dom";
 export default function LoginPage() {
   const navigate = useNavigate();
 
-  const [loginDetails, setLoginDetails] = useState({
-    username: "",
-    password: "",
-  });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleChange(event) {
     const { name, value } = event.target;
-    setLoginDetails((prevLoginData) => ({
-      ...prevLoginData,
-      [name]: value,
-    }));
+    if (name === "username") {
+      setUsername(value);
+    }
+    setPassword(value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (
-      loginDetails.username === "admin" &&
-      loginDetails.password === "admin"
-    ) {
+    if (username === "admin" && password === "admin") {
       navigate("/home");
     } else {
       alert("Login Credentials not matched!");
@@ -38,7 +33,7 @@ export default function LoginPage() {
             name="username"
             onChange={handleChange}
             className="input-field"
-            value={loginDetails.username}
+            value={username}
           />
           <input
             type="password"
@@ -46,7 +41,7 @@ export default function LoginPage() {
             name="password"
             onChange={handleChange}
             className="input-field"
-            value={loginDetails.password}
+            value={password}
           />
 
           <button type="submit" className="login-button">
