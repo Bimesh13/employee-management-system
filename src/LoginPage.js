@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DataContext from "./DataContext";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const data = useContext(DataContext);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +19,7 @@ export default function LoginPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (username === "admin" && password === "admin") {
+    if (username === data.username && password === data.password) {
       navigate("/home");
     } else {
       alert("Login Credentials not matched!");
