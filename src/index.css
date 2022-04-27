@@ -20,7 +20,7 @@ nav {
 }
 
 .logo-text {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
 }
 /* header css ends here */
@@ -56,3 +56,27 @@ nav {
   font-weight: 400;
 }
 /* login page css ends here */
+
+/* menu tab css starts here */
+.menu-tab {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.link-tag {
+  text-decoration: none;
+}
+
+.link-element {
+  font-size: 20px;
+  background-color: #1196e9;
+  color: white;
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  padding-top: 15px;
+  border-radius: 7px;
+}
+/* menu tab css ends here */
