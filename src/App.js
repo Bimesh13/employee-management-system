@@ -1,14 +1,16 @@
 import React from "react";
+import DataContextProvider from "./DataContext";
+import EmployeeContextProvider from "./EmployeeContext";
 import AppRoutes from "./Routes";
-import { DataProvider } from "./DataContext";
 
 function App() {
-  const userData = { username: "admin", password: "admin" };
   return (
     <div className="App">
-      <DataProvider value={userData}>
-        <AppRoutes />
-      </DataProvider>
+      <DataContextProvider>
+        <EmployeeContextProvider>
+          <AppRoutes />
+        </EmployeeContextProvider>
+      </DataContextProvider>
     </div>
   );
 }

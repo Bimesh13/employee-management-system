@@ -82,3 +82,73 @@ nav {
   border-radius: 7px;
 }
 /* menu tab css ends here */
+
+/* employee list css starts here */
+.employee-heading {
+  font-size: 26px;
+  text-decoration: underline;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.employee-table {
+  width: 80%;
+  margin: auto;
+  border: 2px solid black;
+}
+
+.employee-table th,
+td {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.employee-table th {
+  font-size: 20px;
+}
+
+.employee-table td {
+  font-size: 18px;
+  font-weight: 500;
+}
+/* employee list css ends here */
+
+/* employee add css starts here */
+.form-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  background-color: white;
+  width: 400px;
+  padding: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
+}
+
+.form--input {
+  width: 100%;
+  margin-bottom: 20px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.form--submit {
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #639;
+  border: none;
+  cursor: pointer;
+}
+/* employee add css ends here */

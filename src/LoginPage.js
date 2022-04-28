@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DataContext from "./DataContext";
+import { DataContext } from "./DataContext";
 
 export default function LoginPage() {
   const navigate = useNavigate();

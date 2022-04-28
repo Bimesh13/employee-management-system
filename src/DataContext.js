@@ -1,6 +1,17 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 
-const DataContext = React.createContext({});
+export const DataContext = createContext();
 
-export const DataProvider = DataContext.Provider;
-export default DataContext;
+const DataContextProvider = (props) => {
+  const [userData, setUserData] = useState({
+    username: "admin",
+    password: "admin",
+  });
+  return (
+    <DataContext.Provider value={userData}>
+      {props.children}
+    </DataContext.Provider>
+  );
+};
+
+export default DataContextProvider;
