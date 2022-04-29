@@ -152,3 +152,20 @@ td {
   cursor: pointer;
 }
 /* employee add css ends here */
+
+/* employee update css starts here */
+.update-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.update-buttons button {
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #639;
+  border: none;
+  cursor: pointer;
+}
+/* employee update css ends here */
