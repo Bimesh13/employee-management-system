@@ -84,6 +84,19 @@ nav {
 /* menu tab css ends here */
 
 /* employee list css starts here */
+.empty-record {
+  background-color: #eb3531;
+  width: 400px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 30px;
+  color: #ffff;
+  margin: auto;
+  margin-top: 80px;
+  text-align: center;
+  border-radius: 5px;
+}
+
 .employee-heading {
   font-size: 26px;
   text-decoration: underline;
@@ -147,13 +160,20 @@ td {
   padding: 10px;
   border-radius: 5px;
   color: white;
-  background-color: #639;
+  background-color: #1196e9;
   border: none;
   cursor: pointer;
 }
 /* employee add css ends here */
 
 /* employee update css starts here */
+.employee-update-heading {
+  font-size: 26px;
+  text-decoration: underline;
+  margin-top: 30px;
+  margin-left: 140px;
+}
+
 .update-buttons {
   display: flex;
   justify-content: center;
@@ -164,7 +184,7 @@ td {
   padding: 10px;
   border-radius: 5px;
   color: white;
-  background-color: #639;
+  background-color: #1196e9;
   border: none;
   cursor: pointer;
 }

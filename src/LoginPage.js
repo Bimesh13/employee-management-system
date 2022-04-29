@@ -4,7 +4,7 @@ import { DataContext } from "./DataContext";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const data = useContext(DataContext);
+  const { userData, isLoggedIn, setIsLoggedIn } = useContext(DataContext);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,10 @@ export default function LoginPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (username === data.username && password === data.password) {
+    console.log(userData);
+    if (username === userData.username && password === userData.password) {
+      setIsLoggedIn(true);
+      localStorage.setItem("isLoggedIn", "true");
       navigate("/home");
     } else {
       alert("Login Credentials not matched!");

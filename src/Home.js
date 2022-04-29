@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Nav from "./Nav";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate, Navigate } from "react-router-dom";
+import { DataContext } from "./DataContext";
 
 export default function Home() {
+  const { isLoggedIn } = useContext(DataContext);
+  if (!isLoggedIn) {
+    console.log(isLoggedIn);
+    return <Navigate to="/" />;
+  }
   return (
     <>
       <Nav />
