@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { EmployeeContext } from "../EmployeeContext";
 
 export default function Add() {
   const { addEmployee } = useContext(EmployeeContext);
   const navigate = useNavigate();
+  const [modalState, setModalState] = useState(false);
 
   const [formData, setFormData] = React.useState({
     name: "",
@@ -35,7 +36,11 @@ export default function Add() {
       dob: "",
       designation: "",
     });
-    alert("Employee added successfully!");
+    setModalState(true);
+  }
+
+  function goToHome() {
+    setModalState(false);
     navigate("/home");
   }
 
@@ -74,9 +79,37 @@ export default function Add() {
           onChange={handleChange}
           value={formData.designation}
         />
-
         <button className="form--submit">Add Employee</button>
       </form>
+      {modalState && (
+        <div
+          class="modal"
+          tabindex="-1"
+          id="reg-modal"
+          style={{ display: modalState ? "block" : "none" }}
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Employee Added</h5>
+              </div>
+              <div class="modal-body">
+                <p>Employee details has been added successfully.</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  onClick={goToHome}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

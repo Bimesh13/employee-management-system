@@ -1,10 +1,20 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 export const EmployeeContext = createContext();
 
 const EmployeeContextProvider = (props) => {
   const [employeeData, setEmployeeData] = useState([]);
+
+  useEffect(() => {
+    const localData = localStorage.getItem("employees");
+    if (localData) {
+      setEmployeeData(JSON.parse(localData));
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("employees", JSON.stringify(employeeData));
+  }, [employeeData]);
 
   function addEmployee(name, address, dob, designation) {
     setEmployeeData([

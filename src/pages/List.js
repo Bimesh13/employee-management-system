@@ -6,7 +6,9 @@ export default function List() {
   return (
     <>
       {employeeData.length === 0 ? (
-        <h1 className="empty-record">No Employee Data</h1>
+        <h1 className="empty-record">
+          Employee Table Empty. Add Employee Data.
+        </h1>
       ) : (
         <div className="employee-container">
           <h1 className="employee-heading">Employee Details</h1>

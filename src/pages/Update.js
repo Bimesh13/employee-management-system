@@ -9,6 +9,10 @@ export default function Update() {
 
   const [formData, setFormData] = React.useState({});
 
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [deleteID, setDeleteID] = useState();
+
   function callEdit(employee) {
     setEdit(true);
     setFormData(employee);
@@ -30,8 +34,24 @@ export default function Update() {
       formData.dob,
       formData.designation
     );
-    alert("Employee updated successfully!");
     setEdit(false);
+    setEditModal(true);
+  }
+  function deleteAction(id) {
+    setDeleteID(id);
+    setDeleteModal(true);
+  }
+  function deleteRecord() {
+    deleteEmployee(deleteID);
+    setDeleteModal(false);
+  }
+
+  function closeEditModal() {
+    setEditModal(false);
+  }
+
+  function closeDeleteModal() {
+    setDeleteModal(false);
   }
   return (
     <>
@@ -53,11 +73,52 @@ export default function Update() {
               <td>{data.designation}</td>
               <td className="update-buttons">
                 <button onClick={() => callEdit(data)}>Edit</button>
-                <button onClick={() => deleteEmployee(data.id)}>Delete</button>
+                <button
+                  onClick={() => {
+                    deleteAction(data.id);
+                  }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
         </table>
+        {deleteModal && (
+          <div
+            class="modal"
+            tabindex="-1"
+            style={{ display: deleteModal ? "block" : "inline" }}
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Delete Prompt</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Do you want to delete the record?</p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    onClick={closeDeleteModal}
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onClick={deleteRecord}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       {edit && (
         <div className="form-container">
@@ -97,6 +158,35 @@ export default function Update() {
 
             <button className="form--submit">Edit Employee</button>
           </form>
+        </div>
+      )}
+      {editModal && (
+        <div
+          class="modal"
+          tabindex="-1"
+          id="reg-modal"
+          style={{ display: editModal ? "block" : "none" }}
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Employee Edited</h5>
+              </div>
+              <div class="modal-body">
+                <p>Employee details has been edited successfully.</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  onClick={closeEditModal}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </>
